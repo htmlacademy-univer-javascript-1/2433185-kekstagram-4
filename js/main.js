@@ -56,7 +56,7 @@ const createUsers = () =>({
 //массив с 25 объектами
 const GeneratedArrayUsers =  Array.from({length: 25}, createUsers);
 //проверки
-console.log(GeneratedArrayUsers);
-console.log(GeneratedArrayUsers[0]);
-console.log(GeneratedArrayUsers[0].comments);
-console.log(GeneratedArrayUsers[0].comments[0]);
+//console.log(GeneratedArrayUsers);
+//console.log(GeneratedArrayUsers[0]);
+//console.log(GeneratedArrayUsers[0].comments);
+//console.log(GeneratedArrayUsers[0].comments[0]);
