@@ -58,7 +58,7 @@ const GeneratedArrayUsers =  Array.from({length: 25}, createUsers);
 //написал слайс чтобы Eslint не выдавал ошибку is assigned a value but never used
 GeneratedArrayUsers.slice();
 //проверки
-console.log(GeneratedArrayUsers);
-console.log(GeneratedArrayUsers[0]);
-console.log(GeneratedArrayUsers[0].comments);
-console.log(GeneratedArrayUsers[0].comments[0]);
+//console.log(GeneratedArrayUsers);
+//console.log(GeneratedArrayUsers[0]);
+//console.log(GeneratedArrayUsers[0].comments);
+//console.log(GeneratedArrayUsers[0].comments[0]);
