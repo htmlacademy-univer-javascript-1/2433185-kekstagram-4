@@ -21,11 +21,17 @@ function palindrom(string){
 }
 palindrom('Лёша на полке клопа нашёл ');
 
+function isPalindrom(string){
+  const normalString = string.replaceAll(' ','').toLowerCase();
+  const reversedString = [...normalString].reverse().join('');
+  return normalString === reversedString;
+}
+isPalindrom('Лёша на полке клопа нашёл ');
 //Функция 3
 function NumberOnly(string){
   let numbers = '';
   for(let i = 0; i < string.length; i++){
-    if(Number(string[i]) || string[i] === '0'){
+    if(Number(string[i])   ||  string[i] === '0'){
       numbers += string[i];
     }
   }
