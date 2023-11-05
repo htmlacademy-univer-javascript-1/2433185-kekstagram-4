@@ -7,7 +7,7 @@ function cheakString(string, maxLenght){
 }
 cheakString('2323', 12);
 
-//Функция 2
+//Функция 2 2
 function palindrom(string){
   let reversedString = '';
   const normalString = string.replaceAll(' ','').toLowerCase();
