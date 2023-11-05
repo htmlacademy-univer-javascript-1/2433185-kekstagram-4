@@ -1,4 +1,3 @@
-
 //Функция нахождения рандомного числа в диапазоне min - a, max - b
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));

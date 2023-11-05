@@ -14,4 +14,3 @@ const createUsers = () =>({
 const GeneratedArrayUsers = () =>  Array.from({length: 25}, createUsers);
 
 export{GeneratedArrayUsers};
-
