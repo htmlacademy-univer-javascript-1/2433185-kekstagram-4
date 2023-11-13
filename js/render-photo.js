@@ -1,19 +1,22 @@
-import { GeneratedArrayUsers } from './create-users';
 
 const  pictureListElement = document.querySelector('.pictures');
 
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const pictureTemplate = document.querySelector('#picture').content;
 
-const createArrayPicture = GeneratedArrayUsers();
+let pictures = null;
 
-const pictureFragment = document.createDocumentFragment();
-
-createArrayPicture.forEach((picture) => {
-  const pictureElement = pictureTemplate.cloneNode(true);
-  pictureElement.querySelector('.picture__img').src = picture.url;
-  pictureElement.querySelector('.picture__img').alt = picture.description;
-  pictureElement.querySelector('.picture__likes').textContent = picture.likes;
-  pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
-  pictureFragment.appendChild(pictureElement);
-});
-pictureListElement.appendChild(pictureFragment);
+export const picturesList = (photo) => {
+  pictures = photo.slice();
+  if(pictures){
+    const pictureFragment = document.createDocumentFragment();
+    pictures.forEach((picture) => {
+      const pictureElement = pictureTemplate.cloneNode(true);
+      pictureElement.querySelector('.picture__img').src = picture.url;
+      pictureElement.querySelector('.picture__img').alt = picture.description;
+      pictureElement.querySelector('.picture__likes').textContent = picture.likes;
+      pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
+      pictureFragment.appendChild(pictureElement);
+    });
+    pictureListElement.appendChild(pictureFragment);
+  }
+};
