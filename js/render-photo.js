@@ -20,3 +20,4 @@ export const picturesList = (photo) => {
     pictureListElement.appendChild(pictureFragment);
   }
 };
+//
