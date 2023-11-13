@@ -10,5 +10,6 @@ const createUsersComment = () => ({
 });
 
 //рандомные коменатрии под фото
-const arrayRandomComments = Array.from({length: getRandomInteger(0, 30)}, createUsersComment);
+const arrayRandomComments = () => Array.from({length: getRandomInteger(0, 30)}, createUsersComment);
+
 export{arrayRandomComments};
