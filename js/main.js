@@ -1,8 +1,4 @@
-
-import {GeneratedArrayUsers} from './create-users';
-
-// eslint-disable-next-line no-console
-console.log(
-  GeneratedArrayUsers()
-);
-
+import { GeneratedArrayUsers } from './create-users';
+import { picturesList } from './render-photo';
+const photos = GeneratedArrayUsers();
+picturesList(photos);
