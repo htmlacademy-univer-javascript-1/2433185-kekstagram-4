@@ -1,5 +1,5 @@
-import { getRandomInteger, getRandomArrayElement } from './random';
-import { USERS_MESSAGE, USERS_NAME } from './data';
+import { getRandomInteger, getRandomArrayElement } from './random.js';
+import { USERS_MESSAGE, USERS_NAME } from './data.js';
 
 //описание объекта с  комментарием
 const createUsersComment = () => ({
