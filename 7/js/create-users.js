@@ -1,6 +1,6 @@
-import { getRandomArrayElement, getRandomInteger } from './js/random';
-import { DESCRIPT_IMAGE } from './js/data';
-import { arrayRandomComments } from './create-comment';
+import { getRandomArrayElement, getRandomInteger } from './random.js';
+import { DESCRIPT_IMAGE } from './data.js';
+import { arrayRandomComments } from './create-comment.js';
 
 //описание фотографии, опубликованной пользователем
 const createUsers = () => ({

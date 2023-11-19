@@ -1,4 +1,1 @@
-
-import './render-photo';
-
-
+import './render-photo.js';
