@@ -1,3 +1,4 @@
+
 const createComment = (comment) => {
   const newComment = document.createElement('li');
   newComment.classList.add('.social__comments');
@@ -17,4 +18,7 @@ const createComment = (comment) => {
   return newComment;
 };
 
+
 export{createComment};
+
+

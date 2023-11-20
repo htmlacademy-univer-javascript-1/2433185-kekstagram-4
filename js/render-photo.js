@@ -1,5 +1,5 @@
 import { GeneratedArrayUsers } from './create-users.js';
-import { createBigPicture } from './full-screen-image.js';
+import { showBigPicture } from './full-screen-image.js';
 
 const  pictureListElement = document.querySelector('.pictures');
 
@@ -16,7 +16,7 @@ const createPictureUser = (picture) => {
   pictureElement.querySelector('.picture__likes').textContent = picture.likes;
   pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
 
-  createBigPicture(pictureElement, picture);
+  showBigPicture(pictureElement, picture);
 
   return pictureElement;
 };
