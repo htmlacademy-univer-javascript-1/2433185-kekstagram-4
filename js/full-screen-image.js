@@ -84,6 +84,7 @@ function closeUserPhoto (){
 }
 
 closeBigPhoto.addEventListener('click', () => {
+  commentsShow = 0;
   closeUserPhoto();
 });
 
