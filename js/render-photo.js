@@ -1,3 +1,4 @@
+
 import { GeneratedArrayUsers } from './create-users.js';
 import { showBigPicture } from './full-screen-image.js';
 
@@ -31,5 +32,4 @@ const showPictures = (pictures) => {
 createArrayPicture.forEach((picture) => picturesItems.push(createPictureUser(picture)));
 
 showPictures(picturesItems);
-
 
