@@ -1,6 +1,5 @@
 
 import {createComment} from './comment.js';
-import { isEscapeKey } from './random.js';
 
 const body = document.querySelector('body');
 const photoBigPicture = document.querySelector('.big-picture');
@@ -68,24 +67,32 @@ const showBigPicture = (picture ,pictureInfo) => {
 // закрытие фото
 const closeBigPhoto = document.querySelector('.big-picture__cancel');
 
-const onDocumentKeydown = (evt) => {
-  if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeUserPhoto();
-  }
-};
-
-function closeUserPhoto (){
-  photoBigPicture.classList.add('hidden');
-  body.classList.remove('modal-open');
-  document.addEventListener('keydown', onDocumentKeydown);
-  commentLoad.classList.remove('hidden');
-  commentLoad.removeEventListener('click', onCommentLoader);
+function closeEscPhoto () {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      evt.preventDefault();
+      photoBigPicture.classList.add('hidden');
+      body.classList.remove('modal-open');
+      commentsShow = 0;
+      closeBigPhoto.removeEventListener('click', onCommentLoader);
+    }
+    document.removeEventListener('keydown', closeEscPhoto);
+  });
 }
 
-closeBigPhoto.addEventListener('click', () => {
+function closeUserPhoto (){
   commentsShow = 0;
-  closeUserPhoto();
-});
+  photoBigPicture.classList.add('hidden');
+  body.classList.remove('modal-open');
+  commentLoad.classList.remove('hidden');
+
+  closeBigPhoto.removeEventListener('click', onCommentLoader);
+
+  document.removeEventListener('click', closeUserPhoto);
+}
+
+closeBigPhoto.addEventListener('click', closeUserPhoto);
+
+document.addEventListener('keydown', closeEscPhoto);
 
 export{showBigPicture};
