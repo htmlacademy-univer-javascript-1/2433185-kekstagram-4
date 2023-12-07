@@ -1,5 +1,6 @@
 import { addScale, removeScale ,setDefaultScale } from './scale_picture.js';
 import { Validator } from './user-form-validate.js';
+import { disableSlider, onFilterChange, createSlider } from './effects.js';
 
 const formPhotoUser = document.querySelector('.img-upload__form');
 
@@ -19,6 +20,8 @@ const body = document.querySelector('body');
 
 const uploadCancel = imgUploadOverlay.querySelector('.img-upload__cancel');
 
+const effectsField = document.querySelector('.img-upload__effects');
+
 
 //const submite = formPhotoUser.querySelector('.img-upload__submit');
 
@@ -31,6 +34,7 @@ const closeOverlay = (evt) => {
     body.classList.remove('modal-open');
     uploadCancel.removeEventListener('click', closeOverlay);
     body.removeEventListener('keydown', closeOverlay);
+    disableSlider();
     formPhotoUser.reset();
   }
 };
@@ -38,6 +42,7 @@ const closeOverlay = (evt) => {
 
 //открытие
 uploadFile.addEventListener('change', (evt) => {
+  createSlider();
   evt.preventDefault();
   setDefaultScale();
   Validator();
@@ -45,6 +50,7 @@ uploadFile.addEventListener('change', (evt) => {
   imgUploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
   imgPreview.src = URL.createObjectURL(uploadFile.files[0]);
+  effectsField.addEventListener('change', onFilterChange);
   uploadCancel.addEventListener('click', closeOverlay);
   body.addEventListener('keydown', closeOverlay);
 });

@@ -33,3 +33,4 @@ createArrayPicture.forEach((picture) => picturesItems.push(createPictureUser(pic
 
 showPictures(picturesItems);
 
+
