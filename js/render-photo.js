@@ -1,14 +1,8 @@
-
-import { GeneratedArrayUsers } from './create-users.js';
 import { showBigPicture } from './full-screen-image.js';
 
 const  pictureListElement = document.querySelector('.pictures');
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-
-const createArrayPicture = GeneratedArrayUsers();
-
-const picturesItems = [];
 
 const createPictureUser = (picture) => {
   const pictureElement = pictureTemplate.cloneNode(true);
@@ -22,15 +16,11 @@ const createPictureUser = (picture) => {
   return pictureElement;
 };
 
-//отрисовка фотографии на сайте
+
 const showPictures = (pictures) => {
   const pictureFragment = new DocumentFragment;
-  pictures.forEach((picture) => pictureFragment.appendChild(picture));
+  pictures.forEach((picture) => pictureFragment.appendChild(createPictureUser(picture)));
   pictureListElement.appendChild(pictureFragment);
 };
 
-createArrayPicture.forEach((picture) => picturesItems.push(createPictureUser(picture)));
-
-showPictures(picturesItems);
-
-
+export {showPictures};
