@@ -1,6 +1,6 @@
 import { getDataFromServer} from './api.js';
 import { showPictures } from './render-photo.js';
-
+import { showFilters } from './filter-photo.js';
 
 const ErrorMessage = (errorText) => {
   const errorMessage = document.createElement('div');
@@ -25,6 +25,7 @@ const ErrorMessage = (errorText) => {
 getDataFromServer(
   (photos) => {
     showPictures(photos);
+    showFilters(photos);
   },
   (message) => ErrorMessage(message),
 );
