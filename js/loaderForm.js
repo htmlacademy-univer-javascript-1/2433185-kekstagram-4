@@ -52,8 +52,7 @@ const closeOverlay = (evt) => {
   }
 };
 
-//открытие
-const openWindow = () => {
+function uploadOwnPhotoUser(){
   const img = uploadFile.files[0];
   const imgName = img.name.toLowerCase();
   const matches = FILE_TYPES.some((it) => imgName.endsWith(it));
@@ -61,6 +60,11 @@ const openWindow = () => {
   if (matches) {
     imgPreview.src = URL.createObjectURL(img);
   }
+}
+
+//открытие
+const openWindow = () => {
+  uploadOwnPhotoUser();
   createSlider();
   setDefaultScale();
   addScale();
