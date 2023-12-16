@@ -1,3 +1,4 @@
+
 //
 const REGEX = /^#[a-zA-Z0-9а-яА-Я]{1,19}$/;
 
@@ -12,6 +13,7 @@ const textHashtags = formPhotoUser.querySelector('.text__hashtags');
 
 const textDescription = formPhotoUser.querySelector('.text__description');
 
+const submitButton = formPhotoUser.querySelector('.img-upload__submit');
 
 //pristine
 const pristine = new Pristine(formPhotoUser, {
@@ -44,31 +46,43 @@ const validateDescription = (value) => value.length <= MAX_DESCRIPTION_LENGTH;
 
 //form
 
-const Validator = () => {
-  pristine.addValidator(
-    textHashtags,
-    validateHashtagFormat,
-    'Неподходящий хэштег'
+pristine.addValidator(
+  textHashtags,
+  validateHashtagFormat,
+  'Неподходящий хэштег'
 
-  );
-  pristine.addValidator(
-    textHashtags,
-    validateHashtagsLength,
-    'Нельзя указывать больше 5 хэштегов'
-  );
-  pristine.addValidator(
-    textHashtags,
-    validateHashtagsUniqueness,
-    'Повторяющийся хэштег'
-  );
+);
+pristine.addValidator(
+  textHashtags,
+  validateHashtagsLength,
+  'Нельзя указывать больше 5 хэштегов'
+);
+pristine.addValidator(
+  textHashtags,
+  validateHashtagsUniqueness,
+  'Повторяющийся хэштег'
+);
 
-  pristine.addValidator(
-    textDescription,
-    validateDescription,
-    'Длина  комментария не должна превышать 140 символов'
-  );
+pristine.addValidator(
+  textDescription,
+  validateDescription,
+  'Длина  комментария не должна превышать 140 символов'
+);
+
+const resetPrinstine = () => {
+  pristine.reset();
+  submitButton.disabled = false;
 };
 
 
-export{Validator};
+const formValidator = () => {
+  if (pristine.validate()) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+};
+
+
+export{formValidator, resetPrinstine, pristine};
 
