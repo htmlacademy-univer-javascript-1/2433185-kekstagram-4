@@ -4,7 +4,14 @@ const  pictureListElement = document.querySelector('.pictures');
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
+
+function clearPictures() {
+  pictureListElement.querySelectorAll('.picture').forEach((element) => element.remove());
+}
+
+
 const createPictureUser = (picture) => {
+  clearPictures();
   const pictureElement = pictureTemplate.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = picture.url;
   pictureElement.querySelector('.picture__img').alt = picture.description;
@@ -22,5 +29,6 @@ const showPictures = (pictures) => {
   pictures.forEach((picture) => pictureFragment.appendChild(createPictureUser(picture)));
   pictureListElement.appendChild(pictureFragment);
 };
+
 
 export {showPictures};
