@@ -1,3 +1,2 @@
-
-import './loaderForm.js';
-import './uploadDataServer.js';
+import './loader-form.js';
+import './upload-data-server.js';

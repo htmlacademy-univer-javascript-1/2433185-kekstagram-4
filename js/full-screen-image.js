@@ -1,7 +1,7 @@
 
 import {createComment} from './comment.js';
+import { body } from './util.js';
 
-const body = document.querySelector('body');
 const photoBigPicture = document.querySelector('.big-picture');
 
 //коментарии

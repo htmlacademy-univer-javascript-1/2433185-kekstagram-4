@@ -3,7 +3,7 @@ import { formValidator, resetPrinstine, pristine} from './user-form-validate.js'
 import { disableSlider, onFilterChange, createSlider } from './effects.js';
 import { sendDataToServer } from './api.js';
 import { showErrorMessageModal, showSuccessMessageModal } from './alert-message.js';
-
+import { ESC_KEY, body } from './util.js';
 
 const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
 
@@ -13,7 +13,6 @@ const uploadFile = formPhotoUser.querySelector('.img-upload__input');
 
 const imgPreview = formPhotoUser.querySelector('.img-upload__preview img');
 
-const ESC_KEY = 27;
 
 const textDescription = formPhotoUser.querySelector('.text__description');
 
@@ -21,7 +20,6 @@ const textHashTag = formPhotoUser.querySelector('.text__hashtags');
 
 const imgUploadOverlay = formPhotoUser.querySelector('.img-upload__overlay');
 
-const body = document.querySelector('body');
 
 const uploadCancel = imgUploadOverlay.querySelector('.img-upload__cancel');
 
@@ -30,7 +28,6 @@ const effectsField = document.querySelector('.img-upload__effects');
 const submitButton = document.querySelector('.img-upload__submit');
 
 
-//закрытие
 const closeModal = () => {
   resetPrinstine();
   removeScale();
@@ -52,8 +49,7 @@ const closeOverlay = (evt) => {
   }
 };
 
-//открытие
-const openWindow = () => {
+function uploadOwnPhotoUser(){
   const img = uploadFile.files[0];
   const imgName = img.name.toLowerCase();
   const matches = FILE_TYPES.some((it) => imgName.endsWith(it));
@@ -61,6 +57,11 @@ const openWindow = () => {
   if (matches) {
     imgPreview.src = URL.createObjectURL(img);
   }
+}
+
+
+const openWindow = () => {
+  uploadOwnPhotoUser();
   createSlider();
   setDefaultScale();
   addScale();
@@ -85,12 +86,10 @@ formPhotoUser.addEventListener('submit', (evt) => {
         submitButton.disabled = false;
         closeModal();
         showSuccessMessageModal();
-        disableSlider();
       },
       () => {
         showErrorMessageModal();
-        closeModal();
-        submitButton.disabled = false;
+        submitButton.disabled = true;
         uploadFile.value = '';
       },
       new FormData(formPhotoUser)
